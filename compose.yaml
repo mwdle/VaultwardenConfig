@@ -1,0 +1,23 @@
+services:
+  Vaultwarden:
+    container_name: Vaultwarden
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    networks:
+      - Vaultwarden
+    environment:
+      DOMAIN: "https://vault.mwdle.com"
+      SIGNUPS_ALLOWED: false # Deactivate this with "false" after you have created your account so that no strangers can register
+    volumes:
+      - ${DOCKER_VOLUMES}/Vaultwarden:/data/
+      - /etc/localtime:/etc/localtime:ro
+    # deploy: # TODO: Test Resource Limits
+    #   resources:
+    #     limits: 
+    #       cpus: '2.0'
+    #       memory: 1GB
+
+networks:
+  Vaultwarden:
+    name: Vaultwarden
+    external: true
