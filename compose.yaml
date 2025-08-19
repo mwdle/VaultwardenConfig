@@ -11,11 +11,11 @@ services:
     volumes:
       - ${DOCKER_VOLUMES}/Vaultwarden:/data/
       - /etc/localtime:/etc/localtime:ro
-    # deploy: # TODO: Test Resource Limits
-    #   resources:
-    #     limits: 
-    #       cpus: '2.0'
-    #       memory: 1GB
+    deploy: # TODO: Test Resource Limits
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1GB
 
 networks:
   Vaultwarden:
