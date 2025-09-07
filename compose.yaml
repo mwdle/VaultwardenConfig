@@ -1,3 +1,4 @@
+name: Vaultwarden
 services:
   Vaultwarden:
     container_name: Vaultwarden
