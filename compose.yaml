@@ -2,7 +2,7 @@ name: Vaultwarden
 services:
   Vaultwarden:
     container_name: Vaultwarden
-    image: vaultwarden/server:latest
+    image: vaultwarden/server:1.35.4
     restart: unless-stopped
     networks:
       - Vaultwarden
