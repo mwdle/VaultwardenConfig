@@ -23,6 +23,10 @@ services:
       - ${DOCKER_VOLUMES}/Vaultwarden:/data/
       - /etc/localtime:/etc/localtime:ro
 
+    user: "${UID}:${GID}"
+    security_opt:
+      - no-new-privileges:true
+
     deploy:
       resources:
         limits:
