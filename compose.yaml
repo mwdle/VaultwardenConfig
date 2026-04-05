@@ -24,14 +24,21 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
     user: "${UID}:${GID}"
+    read_only: true
     security_opt:
       - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    logging:
+      driver: journald
 
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: 1GB
+          cpus: 0.5
+          memory: 256M
+          pids: 50
 
 networks:
   Vaultwarden:
